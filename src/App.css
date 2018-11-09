@@ -12,15 +12,6 @@ p {
 }
 .counter {
   padding: 10px;
-
-  .counter-controls {
-    display: inline-block;
-    margin-left: 10px;
-
-    button {
-      margin-right: 4px;
-    }
-  }
 }
 
 ol.instructions {
