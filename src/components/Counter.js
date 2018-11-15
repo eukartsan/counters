@@ -18,6 +18,7 @@ export default class Counter extends React.Component {
 
   render() {
     const {value} = this.state;
+    
     return (<div className="counter">
       <b>{value}</b>
       <div className="counter-controls">
