@@ -8,11 +8,11 @@ const initialState = {
   value: 0
 };
 
-function reducer(state = initialState, action) {
+{/*function reducer(state = initialState, action) {
   switch(action.type) {
     case 'INCREMENT':
     return {
-      value: state.value + 1
+    value: state.value + 1
     };
     case 'DECREMENT':
       return {
@@ -21,7 +21,12 @@ function reducer(state = initialState, action) {
     default:
       return state;
   }
-}
+}*/}
+
+const reducer = (state = initialState, action) =>
+  action.type === 'INCREMENT'   ? state.value + 1
+  : action.type === 'DECREMENT' ? state.value - 1
+                                : state
 
 let store = createStore(reducer);
 

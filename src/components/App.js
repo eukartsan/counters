@@ -1,4 +1,5 @@
 import React from 'react';
+import Counter from './Counter'
 import Counters from './Counters'
 import Total from './Total'
 import './App.css';

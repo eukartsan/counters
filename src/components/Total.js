@@ -19,13 +19,13 @@ export default class Total extends React.Component {
     return (
       <div>
           <form>
-            <input
+            {/*<input
               type="text"
               value={total}
-              onChange={this.totalChange}/>
+              onChange={this.totalChange}/>*/}
             <input
               type="submit"
-              value="Total" />
+              value="Add counter" />
           </form>
       </div>
       );
