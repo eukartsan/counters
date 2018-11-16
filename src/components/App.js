@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import Counters from './components'
+import React from 'react';
+import Counters from './Counters'
 import Total from './Total'
 import './App.css';
 

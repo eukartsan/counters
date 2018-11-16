@@ -2,26 +2,25 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 class Counters extends React.Component {
-  increment = () => {
+  onIncrement = () => {
     this.props.dispatch({ type: 'INCREMENT' });
   }
 
-  decrement = () => {
+  onDecrement = () => {
     this.props.dispatch({ type: 'DECREMENT' });
   }
 
   render() {
     const {value} = this.props;
-
     return (
       <div className="counter">
       <b>{value}</b>
       <div className="counter-controls">
         <button
-          onClick={this.decrement}
+          onClick={this.onDecrement}
           className="button is-danger is-small">-</button>
         <button
-          onClick={this.increment}
+          onClick={this.onIncrement}
           className="button is-success is-small">+</button>
       </div>
       </div>
