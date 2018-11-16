@@ -1,5 +1,5 @@
-import React from 'react';
-import Counter from './Counter'
+import React, {Component} from 'react';
+import Counters from './components'
 import Total from './Total'
 import './App.css';
 
@@ -14,7 +14,7 @@ class App extends React.Component {
     return (
       <div>
       {data.map(counter => (
-        <Counter
+        <Counters
           key={counter.id}
           value={counter.value}/>))}
         <Total />
