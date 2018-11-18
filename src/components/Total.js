@@ -1,33 +1,33 @@
 import React from 'react';
 
 export default class Total extends React.Component {
-  constructor(){
-    super();
+    constructor() {
+        super();
 
-    this.state = {
-      total: ''
-    };
-  }
+        this.state = {
+            total: ''
+        };
+    }
 
-  totalChange = (event) => {
-    this.setState({total: event.target.value});
-  }
+    totalChange = (event) => {
+        this.setState({total: event.target.value});
+    }
 
-  render() {
-    const {total} = this.state;
+    render() {
+        const {total} = this.state;
 
-    return (
-      <div>
-          <form>
-            {/*<input
+        return (
+            <div>
+                <form>
+                    {/*<input
               type="text"
               value={total}
               onChange={this.totalChange}/>*/}
-            <input
-              type="submit"
-              value="Add counter" />
-          </form>
-      </div>
-      );
+                    <input
+                        type="submit"
+                        value="Add counter"/>
+                </form>
+            </div>
+        );
     }
 }

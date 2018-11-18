@@ -1,26 +1,36 @@
 import React from 'react';
-import Counter from './Counter'
 import Counters from './Counters'
-import Total from './Total'
 import './App.css';
-
-const data = [
-  {id: 1, value: 0},
-  {id: 2, value: 0},
-  {id: 3, value: 0}
-];
+import {connect} from 'react-redux';
+import {onIncrement, onDecrement} from '../actions/PageActions';
 
 class App extends React.Component {
-  render() {
-    return (
-      <div>
-      {data.map(counter => (
-        <Counters
-          key={counter.id}
-          value={counter.value}/>))}
-        <Total />
-      </div>);
-  }
+    render() {
+        return (
+            <div>
+                {this.props.dataCounters.map(counter => (
+                    <Counters
+                        value={counter.value}
+                        incrementCounter={this.props.incrementCounter}
+                        decrementCounter={this.props.decrementCounter}
+                        key={counter.id}/>))}
+            </div>);
+    }
 }
 
-export default App;
+function mapStateToProps(state) {
+    return {
+        dataCounters: state.data
+    };
+}
+
+
+const mapDispatchToProps = dispatch => {
+    return {
+        incrementCounter: () => dispatch(onIncrement(1)),
+        decrementCounter: () => dispatch(onDecrement(1))
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
