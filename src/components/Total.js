@@ -1,28 +1,18 @@
 import React from 'react';
 
 export default class Total extends React.Component {
-    constructor() {
-        super();
 
-        this.state = {
-            total: ''
-        };
-    }
-
-    totalChange = (event) => {
-        this.setState({total: event.target.value});
+    addCounterName = (event) => {
+        const {addCounter} = this.props
+        addCounter(addCounter)
+        event.preventDefault();
     }
 
     render() {
-        const {total} = this.state;
 
         return (
             <div>
-                <form>
-                    {/*<input
-              type="text"
-              value={total}
-              onChange={this.totalChange}/>*/}
+                <form onSubmit={this.addCounterName}>
                     <input
                         type="submit"
                         value="Add counter"/>

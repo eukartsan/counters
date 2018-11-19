@@ -1,16 +1,13 @@
-export function onIncrement(value, id) {
+export function onIncrement(id) {
     return {
         type: 'INCREMENT',
-        payload: value,
         id
     }
 }
 
-
-export function onDecrement(value, id) {
+export function onDecrement(value) {
     return {
         type: 'DECREMENT',
         payload: value,
-        id
     }
 }
