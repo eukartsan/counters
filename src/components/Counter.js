@@ -1,23 +1,23 @@
 import React from 'react';
 
 export default class Counter extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            value: 0
-        };
-    }
-
-    onDecrement = () => {
-        this.setState(({value}) => ({value: value - 1}))
-    }
-
-    onIncrement = () => {
-        this.setState(({value}) => ({value: value + 1}))
-    }
+    // constructor() {
+    //     super();
+    //     this.state = {
+    //         value: 0
+    //     };
+    // }
+    //
+    // onDecrement = () => {
+    //     this.setState(({value}) => ({value: value - 1}))
+    // }
+    //
+    // onIncrement = () => {
+    //     this.setState(({value}) => ({value: value + 1}))
+    // }
 
     render() {
-        const {value} = this.state;
+        const {value} = this.props;
         return (
 
             <div className="counter">

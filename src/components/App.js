@@ -14,7 +14,7 @@ class App extends React.Component {
             data: [
                 {id: uuidv4(), value: 0},
                 {id: uuidv4(), value: 0},
-                {id: uuidv4(), value: 0}
+                {id: uuidv4(), value: 0},
             ]
         };
     }
@@ -23,6 +23,7 @@ class App extends React.Component {
         this.setState((prevState) => {
             const newCounter = {
                 id: uuidv4(),
+                value: 0
             }
 
             return {
@@ -37,7 +38,8 @@ class App extends React.Component {
                 {this.state.data.map(counter => (
                     <Counter
                         key={counter.id}
-                        value={counter.value}/>))}
+                        value={counter.value}
+                    />))}
                 <Total
                     addCounter={this.addCounter}
                 />
