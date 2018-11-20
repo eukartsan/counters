@@ -1,7 +1,7 @@
 import React from 'react'
-import {Provider} from 'react-redux'
+import { Provider } from 'react-redux'
 import App from './App'
-import {createStore} from 'redux'
+import { createStore } from 'redux'
 //import {store} from '../store/configureStore'
 
 const initialState = {

@@ -16,8 +16,15 @@ export default class Counter extends React.Component {
     //     this.setState(({value}) => ({value: value + 1}))
     // }
 
+    onDeleteCounter = () => (event) => {
+        const {deleteCounter} = this.props;
+        event.preventDefault();
+        deleteCounter();
+    }
+
     render() {
         const {value} = this.props;
+
         return (
 
             <div className="counter">
@@ -30,6 +37,10 @@ export default class Counter extends React.Component {
                     <button
                         onClick={this.onIncrement}
                         className="button is-success is-small">+
+                    </button>
+                    <button
+                        onClick={this.onDeleteCounter()}>
+                        Delete
                     </button>
                 </div>
             </div>);

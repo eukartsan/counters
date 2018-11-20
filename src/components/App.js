@@ -32,6 +32,14 @@ class App extends React.Component {
         })
     }
 
+    deleteCounter = (id) => {
+        this.setState((prevState) => {
+            return {
+                data: prevState.data.filter(el => el.id !== id)
+            };
+        })
+    }
+
     render() {
         return (
             <div>
@@ -39,9 +47,11 @@ class App extends React.Component {
                     <Counter
                         key={counter.id}
                         value={counter.value}
+                        deleteCounter={this.deleteCounter}
                     />))}
                 <Total
                     addCounter={this.addCounter}
+
                 />
             </div>);
     }
