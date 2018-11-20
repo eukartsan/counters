@@ -1,45 +1,44 @@
 import React from 'react';
 
 export default class Counter extends React.Component {
-    // constructor() {
-    //     super();
-    //     this.state = {
-    //         value: 0
-    //     };
-    // }
-    //
-    // onDecrement = () => {
-    //     this.setState(({value}) => ({value: value - 1}))
-    // }
-    //
-    // onIncrement = () => {
-    //     this.setState(({value}) => ({value: value + 1}))
-    // }
+    constructor() {
+        super();
+        this.state = {
+            value: 0
+        };
+    }
 
-    onDeleteCounter = () => (event) => {
+
+    onDeleteCounter = (id) => () => {
         const {deleteCounter} = this.props;
+        //event.preventDefault();
+        deleteCounter(id);
+    }
+
+    onIncrement = (id) => (event) => {
+        const {onIncrement} = this.props;
         event.preventDefault();
-        deleteCounter();
+        onIncrement(id)
     }
 
     render() {
-        const {value} = this.props;
+        const {value, id, onDecrement} = this.props;
 
         return (
 
             <div className="counter">
-                <b>{value}</b>
+                <strong>{value}</strong>
                 <div className="counter-controls">
                     <button
-                        onClick={this.onDecrement}
+                        onClick={onDecrement}
                         className="button is-danger is-small">-
                     </button>
                     <button
-                        onClick={this.onIncrement}
+                        onClick={this.onIncrement(id)}
                         className="button is-success is-small">+
                     </button>
                     <button
-                        onClick={this.onDeleteCounter()}>
+                        onClick={this.onDeleteCounter(id)}>
                         Delete
                     </button>
                 </div>

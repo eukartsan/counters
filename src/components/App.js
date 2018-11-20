@@ -12,9 +12,9 @@ class App extends React.Component {
 
         this.state = {
             data: [
-                {id: uuidv4(), value: 0},
-                {id: uuidv4(), value: 0},
-                {id: uuidv4(), value: 0},
+                {id: uuidv4(), value: 1},
+                {id: uuidv4(), value: 2},
+                {id: uuidv4(), value: 3},
             ]
         };
     }
@@ -40,6 +40,21 @@ class App extends React.Component {
         })
     }
 
+    onDecrement = (id) => {
+        this.setState(
+            ({value}) => ({value: value - 1}))
+    }
+
+    onIncrement = (id) => {
+        const dataCopy = [...this.state.data];
+        const data = dataCopy.map((counter) => {
+            if (counter.id === id) {
+                counter.value = counter.value + 1;
+            }
+        })
+        this.setState(data)
+    }
+
     render() {
         return (
             <div>
@@ -48,10 +63,12 @@ class App extends React.Component {
                         key={counter.id}
                         value={counter.value}
                         deleteCounter={this.deleteCounter}
+                        id={counter.id}
+                        onDecrement={this.onDecrement}
+                        onIncrement={this.onIncrement}
                     />))}
                 <Total
                     addCounter={this.addCounter}
-
                 />
             </div>);
     }
