@@ -1,13 +1,6 @@
 import React from 'react';
 
 export default class Counter extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            value: 0
-        };
-    }
-
 
     onDeleteCounter = (id) => (event) => {
         const {deleteCounter} = this.props;

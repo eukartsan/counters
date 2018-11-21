@@ -5,9 +5,9 @@ export function onIncrement(id) {
     }
 }
 
-export function onDecrement(value) {
+export function onDecrement(id) {
     return {
         type: 'DECREMENT',
-        payload: value,
+        id
     }
 }
