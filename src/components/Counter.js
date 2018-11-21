@@ -9,9 +9,9 @@ export default class Counter extends React.Component {
     }
 
 
-    onDeleteCounter = (id) => () => {
+    onDeleteCounter = (id) => (event) => {
         const {deleteCounter} = this.props;
-        //event.preventDefault();
+        event.preventDefault();
         deleteCounter(id);
     }
 
@@ -21,8 +21,14 @@ export default class Counter extends React.Component {
         onIncrement(id)
     }
 
+    onDecrement = (id) => (event) => {
+        const {onDecrement} = this.props;
+        event.preventDefault();
+        onDecrement(id)
+    }
+
     render() {
-        const {value, id, onDecrement} = this.props;
+        const {value, id} = this.props;
 
         return (
 
@@ -30,7 +36,7 @@ export default class Counter extends React.Component {
                 <strong>{value}</strong>
                 <div className="counter-controls">
                     <button
-                        onClick={onDecrement}
+                        onClick={this.onDecrement(id)}
                         className="button is-danger is-small">-
                     </button>
                     <button
@@ -38,8 +44,8 @@ export default class Counter extends React.Component {
                         className="button is-success is-small">+
                     </button>
                     <button
-                        onClick={this.onDeleteCounter(id)}>
-                        Delete
+                        onClick={this.onDeleteCounter(id)}
+                        className="button is-warning is-small">Del
                     </button>
                 </div>
             </div>);

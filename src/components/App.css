@@ -67,3 +67,15 @@ ol.instructions {
     border-color: transparent;
     color: #fff;
 }
+
+.button.is-warning{
+    background-color: #0495c9;
+    border-color: transparent;
+    color: #fff;
+}
+
+.button.is-warning:hover, .button.is-warning.is-hovered {
+    background-color: #00b3db;
+    border-color: transparent;
+    color: #fff;
+}

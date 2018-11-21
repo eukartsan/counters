@@ -41,8 +41,13 @@ class App extends React.Component {
     }
 
     onDecrement = (id) => {
-        this.setState(
-            ({value}) => ({value: value - 1}))
+        const dataCopy = [...this.state.data];
+        const data = dataCopy.map((counter) => {
+            if (counter.id === id) {
+                counter.value = counter.value - 1;
+            }
+        })
+        this.setState(data)
     }
 
     onIncrement = (id) => {
