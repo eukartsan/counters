@@ -8,26 +8,27 @@
  }*/
 
 p {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
+
 .counter {
-  padding: 10px;
+    padding: 10px;
 }
 
 ol.instructions {
-  list-style-type: decimal;
-  margin-left: 1rem;
-  margin-top: .5rem;
+    list-style-type: decimal;
+    margin-left: 1rem;
+    margin-top: .5rem;
+}
 
-  li {
+li {
     margin-bottom: 1rem;
+}
 
-    ol {
-      margin-top: .5rem;
-      margin-left: 2.5rem;
-      list-style-type: decimal;
-    }
-  }
+ol {
+    margin-top: .5rem;
+    margin-left: 2.5rem;
+    list-style-type: decimal;
 }
 
 .counter .counter-controls {
@@ -39,15 +40,15 @@ ol.instructions {
     margin-right: 4px;
 }
 
-.button.is-small{
-  border-radius: 2px;
-  font-size: 1rem;
+.button.is-small {
+    border-radius: 2px;
+    font-size: 1rem;
 }
 
-.button.is-danger{
-  background-color: #ff3860;
-  border-color: transparent;
-  color: #fff;
+.button.is-danger {
+    background-color: #ff3860;
+    border-color: transparent;
+    color: #fff;
 }
 
 .button.is-danger:hover, .button.is-danger.is-hovered {
@@ -56,14 +57,26 @@ ol.instructions {
     color: #fff;
 }
 
-.button.is-success{
-  background-color: #23d160;
-  border-color: transparent;
-  color: #fff;
+.button.is-success {
+    background-color: #23d160;
+    border-color: transparent;
+    color: #fff;
 }
 
 .button.is-success:hover, .button.is-success.is-hovered {
     background-color: #22c65b;
+    border-color: transparent;
+    color: #fff;
+}
+
+.button.is-warning {
+    background-color: #0495c9;
+    border-color: transparent;
+    color: #fff;
+}
+
+.button.is-warning:hover, .button.is-warning.is-hovered {
+    background-color: #00b3db;
     border-color: transparent;
     color: #fff;
 }

@@ -1,13 +1,16 @@
-export function onIncrement(id) {
-    return {
-        type: 'INCREMENT',
-        id
-    }
-}
+let nextTodoId = 0
 
-export function onDecrement(value) {
+export const onIncrement = (value) => ({
+        type: 'INCREMENT',
+        id: nextTodoId++,
+        value
+})
+
+
+
+export const onDecrement = (id) => {
     return {
         type: 'DECREMENT',
-        payload: value,
+        id
     }
 }

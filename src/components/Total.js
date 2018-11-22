@@ -18,6 +18,8 @@ export default class Total extends React.Component {
                         value="Add counter"/>
                 </form>
             </div>
+
+
         );
     }
 }
