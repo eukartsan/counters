@@ -5,7 +5,6 @@ import Total from './Total'
 import uuidv4 from 'uuid/v4';
 import {connect} from 'react-redux';
 import {onIncrement, onDecrement} from '../actions/PageActions';
-import {data} from  '../store/configureStore'
 
 class App extends React.Component {
 
@@ -51,6 +50,7 @@ class App extends React.Component {
     }
 
     render() {
+        const {value} = this.props
         return (
             <div>
                 {this.props.dataCounters.map(counter => (

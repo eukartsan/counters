@@ -1,15 +1,23 @@
+import uuidv4 from 'uuid/v4';
 
+export const initialState = {
+    data: [
+        {id: uuidv4(), value: 1},
+        {id: uuidv4(), value: 3},
+        {id: uuidv4(), value: 2},
+    ]
+};
 
-export function reducer(state, action) {
+export function reducer(state = initialState, action) {
     switch (action.type) {
         case 'INCREMENT': {
-            const id = action.id;
-            const todoItem = {
-                value: action.payload.value + 1,
-                id,
-            };
-
-            return {...state, data: [...state.data, todoItem]};
+            return [
+                ...state,
+                {
+                    id: action.id,
+                    value: action.value + 1,
+                }
+            ]
         }
         case 'DECREMENT':
             return state - 1

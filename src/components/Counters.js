@@ -1,7 +1,8 @@
 import React from 'react';
+import { onIncrement } from "../actions/PageActions";
 
+export default class Counters extends React.Component {
 
-class Counters extends React.Component {
     render() {
         const {value, decrementCounter, incrementCounter} = this.props;
 
@@ -22,5 +23,3 @@ class Counters extends React.Component {
         )
     }
 }
-
-export default Counters
