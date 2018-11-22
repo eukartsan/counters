@@ -5,19 +5,9 @@ import Total from './Total'
 import uuidv4 from 'uuid/v4';
 import {connect} from 'react-redux';
 import {onIncrement, onDecrement} from '../actions/PageActions';
+import {data} from  '../store/configureStore'
 
 class App extends React.Component {
-    constructor() {
-        super()
-
-        this.state = {
-            data: [
-                {id: uuidv4(), value: 1},
-                {id: uuidv4(), value: 2},
-                {id: uuidv4(), value: 3},
-            ]
-        };
-    }
 
     addCounter = () => {
         this.setState((prevState) => {
@@ -63,7 +53,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                {this.state.data.map(counter => (
+                {this.props.dataCounters.map(counter => (
                     <Counter
                         id={counter.id}
                         value={counter.value}

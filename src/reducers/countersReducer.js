@@ -1,17 +1,18 @@
-export const initialState = {
-    data: [
-        {id: 1, value: 11},
-        {id: 2, value: 22},
-        {id: 3, value: 33},
-    ]
-};
 
-export function reducer(state = initialState, action) {
+
+export function reducer(state, action) {
     switch (action.type) {
-        case 'INCREMENT':
-            return state
+        case 'INCREMENT': {
+            const id = action.id;
+            const todoItem = {
+                value: action.payload.value + 1,
+                id,
+            };
+
+            return {...state, data: [...state.data, todoItem]};
+        }
         case 'DECREMENT':
-            return state
+            return state - 1
         default:
             return state
     }
