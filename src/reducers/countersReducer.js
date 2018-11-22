@@ -5,20 +5,24 @@ export const initialState = {
         {id: uuidv4(), value: 1},
         {id: uuidv4(), value: 3},
         {id: uuidv4(), value: 2},
+        {id: uuidv4(), value: 2},
     ]
 };
 
 export function reducer(state = initialState, action) {
     switch (action.type) {
         case 'INCREMENT': {
-            return [
-                ...state,
-                {
-                    id: action.id,
-                    value: action.value + 1,
-                }
-            ]
+            return state
         }
+        //     return
+        //     [
+        //         ...state,
+        //         {
+        //             id: action.id,
+        //             value: action.value + 1,
+        //         }
+        //     ]
+        // }
         case 'DECREMENT':
             return state - 1
         default:

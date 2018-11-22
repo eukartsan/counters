@@ -3,8 +3,8 @@ import Counter from './Counter'
 import './App.css';
 import Total from './Total'
 import uuidv4 from 'uuid/v4';
-import {connect} from 'react-redux';
-import {onIncrement, onDecrement} from '../actions/PageActions';
+import { connect } from 'react-redux';
+import { onIncrement, onDecrement } from '../actions/PageActions';
 
 class App extends React.Component {
 
@@ -29,16 +29,6 @@ class App extends React.Component {
         })
     }
 
-    onDecrement = (id) => {
-        const dataCopy = [...this.state.data];
-        const data = dataCopy.map((counter) => {
-            if (counter.id === id) {
-                counter.value = counter.value - 1;
-            }
-        })
-        this.setState(data)
-    }
-
     onIncrement = (id) => {
         const dataCopy = [...this.state.data];
         const data = dataCopy.map((counter) => {
@@ -49,22 +39,32 @@ class App extends React.Component {
         this.setState(data)
     }
 
+    onDecrement = (id) => {
+        const dataCopy = [...this.state.data];
+        const data = dataCopy.map((counter) => {
+            if (counter.id === id) {
+                counter.value = counter.value - 1;
+            }
+        })
+        this.setState(data)
+    }
+
     render() {
-        const {value} = this.props
+        const {dataCounters} = this.props
         return (
             <div>
-                {this.props.dataCounters.map(counter => (
+                {dataCounters.map(counter => (
                     <Counter
                         id={counter.id}
                         value={counter.value}
                         deleteCounter={this.deleteCounter}
-                        onDecrement={this.onDecrement}
-                        onIncrement={this.onIncrement}
+                        onIncrement={this.onIncrement(counter.id)}
+                        onDecrement={this.onDecrement(counter.id)}
                     />))}
                 <Total
                     addCounter={this.addCounter}
                 />
-            </div>);
+            </div>)
     }
 }
 
