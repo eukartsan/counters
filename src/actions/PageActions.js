@@ -1,11 +1,9 @@
-let nextTodoId = 0
+import uuidv4 from 'uuid/v4';
 
-export const onIncrement = (value) => ({
-        type: 'INCREMENT',
-        id: nextTodoId++,
-        value
+export const onIncrement = (id) => ({
+    type: 'INCREMENT',
+    id,
 })
-
 
 
 export const onDecrement = (id) => {
