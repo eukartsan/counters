@@ -31,20 +31,17 @@ export function reducer(state = initialState, action) {
             })
             return {...state, data}
         }
+        case 'DELETE': {
+            const items = state.data.filter(({id}) => id !== action.payload.id);
+            return {...state, items};
+        }
+
+        // {
+        //     const items = state.data.filter(({ id }) => id !== action.payload.id);
+        //     return { ...state, items };
+        // }
+
         default:
             return state
     }
 }
-
-
-// this.props.dataCounters.map(counter => (
-//     <Counters
-//         value={counter.value}
-//         incrementCounter={this.props.incrementCounter}
-//         decrementCounter={this.props.decrementCounter}
-//         key={counter.id}/>))
-
-// if (action.id === 1)
-//     state.data.map(counter => (
-//         console.log(counter.value + 1, counter.id)
-//     ))

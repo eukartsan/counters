@@ -1,38 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { onIncrement, onDecrement } from '../actions/PageActions';
+import { onIncrement, onDecrement, onDeleteCounter } from '../actions/PageActions';
 
 class Counter extends React.Component {
 
     onDeleteCounter = (id) => (event) => {
-        const {deleteCounter} = this.props;
-        event.preventDefault();
-        deleteCounter(id);
+        event.preventDefault()
+        this.props.handleOnDelCounter(id)
     }
-    //
-    // onIncrement = (id) => (event) => {
-    //     const {onIncrement} = this.props;
-    //     event.preventDefault();
-    //     onIncrement(id)
-    // }
-    //
-    // onDecrement = (id) => (event) => {
-    //     const {onDecrement} = this.props;
-    //     event.preventDefault();
-    //     onDecrement(id)
-    // }
 
     onIncrement = (id) => (event) => {
         event.preventDefault()
         this.props.handleOnIncrement(id)
-
-        // const dataCopy = [...this.state.data];
-        // const data = dataCopy.map((counter) => {
-        //     if (counter.id === id) {
-        //         counter.value = counter.value + 1;
-        //     }
-        // })
-        // this.setState(data)
     }
 
     onDecrement = (id) => (event) => {
@@ -68,9 +47,9 @@ class Counter extends React.Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        //handleOnIncrement: onIncrement,
         handleOnIncrement: (id) => dispatch(onIncrement(id)),
         handleOnDecrement: (id) => dispatch(onDecrement(id)),
+        handleOnDelCounter: (id) => dispatch(onDeleteCounter(id)),
     }
 }
 
