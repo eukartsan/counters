@@ -1,11 +1,10 @@
-import uuidv4 from 'uuid/v4';
+import uuidv4 from 'uuid/v4'
 
 export const initialState = {
     data: [
-        {id: uuidv4(), value: 1},
-        {id: uuidv4(), value: 3},
-        {id: uuidv4(), value: 2},
-        {id: uuidv4(), value: 2},
+        { id: uuidv4(), value: 0 },
+        { id: uuidv4(), value: 0 },
+        { id: uuidv4(), value: 0 },
     ]
 };
 
@@ -19,7 +18,7 @@ export function reducer(state = initialState, action) {
                 }
                 return counter
             })
-            return {...state, data}
+            return { ...state, data }
         }
         case 'DECREMENT': {
             const dataCopy = [...state.data]
@@ -29,17 +28,21 @@ export function reducer(state = initialState, action) {
                 }
                 return counter
             })
-            return {...state, data}
+            return { ...state, data }
         }
-        case 'DELETE': {
-            const items = state.data.filter(({id}) => id !== action.payload.id);
-            return {...state, items};
+        case 'ADD': {
+            const newCounter = {
+                id: uuidv4(),
+                value: 0
+            }
+            const data = [...state.data, newCounter]
+            return { ...state, data }
         }
 
-        // {
-        //     const items = state.data.filter(({ id }) => id !== action.payload.id);
-        //     return { ...state, items };
-        // }
+        case 'DELETE': {
+            const data = state.data.filter((counter) => counter.id !== action.id)
+            return { ...state, data }
+        }
 
         default:
             return state

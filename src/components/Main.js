@@ -5,7 +5,7 @@ import { store } from '../store/configureStore'
 
 const Main = () => (
     <Provider store={store}>
-        <App/>
+        <App />
     </Provider>
 )
 

@@ -8,6 +8,11 @@ export const onDecrement = (id) => ({
     id,
 })
 
+export const onAddCounter = (id) => ({
+    type: 'ADD',
+    id,
+})
+
 export const onDeleteCounter = (id) => ({
     type: 'DELETE',
     id,

@@ -1,29 +1,24 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { onIncrement, onDecrement, onDeleteCounter } from '../actions/PageActions';
+import React from 'react'
+import { connect } from 'react-redux'
+import { onIncrement, onDecrement, onDeleteCounter } from '../actions/PageActions'
 
 class Counter extends React.Component {
-
-    onDeleteCounter = (id) => (event) => {
-        event.preventDefault()
+    onDeleteCounter = (id) => () => {
         this.props.handleOnDelCounter(id)
     }
 
-    onIncrement = (id) => (event) => {
-        event.preventDefault()
+    onIncrement = (id) => () => {
         this.props.handleOnIncrement(id)
     }
 
-    onDecrement = (id) => (event) => {
-        event.preventDefault()
+    onDecrement = (id) => () => {
         this.props.handleOnDecrement(id)
     }
 
     render() {
-        const {value, id} = this.props;
+        const { value, id } = this.props
 
         return (
-
             <div className="counter">
                 <strong>{value}</strong>
                 <div className="counter-controls">
@@ -44,7 +39,6 @@ class Counter extends React.Component {
     }
 }
 
-
 const mapDispatchToProps = dispatch => {
     return {
         handleOnIncrement: (id) => dispatch(onIncrement(id)),
@@ -53,4 +47,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(Counter);
+export default connect(null, mapDispatchToProps)(Counter)
