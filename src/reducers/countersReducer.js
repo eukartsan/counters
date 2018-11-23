@@ -12,17 +12,15 @@ export const initialState = {
 export function reducer(state = initialState, action) {
     switch (action.type) {
         case 'INCREMENT': {
-            return state
+            const dataCopy = [...state.data]
+            const data = dataCopy.map((counter) => {
+                if (counter.id === action.id) {
+                    counter.value = counter.value + 1
+                }
+                return counter
+            })
+            return {...state, data}
         }
-        //     return
-        //     [
-        //         ...state,
-        //         {
-        //             id: action.id,
-        //             value: action.value + 1,
-        //         }
-        //     ]
-        // }
         case 'DECREMENT':
             return state - 1
         default:

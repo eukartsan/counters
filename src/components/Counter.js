@@ -1,23 +1,48 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { onIncrement, onDecrement } from '../actions/PageActions';
 
-export default class Counter extends React.Component {
+class Counter extends React.Component {
 
     onDeleteCounter = (id) => (event) => {
         const {deleteCounter} = this.props;
         event.preventDefault();
         deleteCounter(id);
     }
+    //
+    // onIncrement = (id) => (event) => {
+    //     const {onIncrement} = this.props;
+    //     event.preventDefault();
+    //     onIncrement(id)
+    // }
+    //
+    // onDecrement = (id) => (event) => {
+    //     const {onDecrement} = this.props;
+    //     event.preventDefault();
+    //     onDecrement(id)
+    // }
 
     onIncrement = (id) => (event) => {
-        const {onIncrement} = this.props;
-        event.preventDefault();
-        onIncrement(id)
+        event.preventDefault()
+        this.props.handleOnIncrement(id)
+
+        // const dataCopy = [...this.state.data];
+        // const data = dataCopy.map((counter) => {
+        //     if (counter.id === id) {
+        //         counter.value = counter.value + 1;
+        //     }
+        // })
+        // this.setState(data)
     }
 
-    onDecrement = (id) => (event) => {
-        const {onDecrement} = this.props;
-        event.preventDefault();
-        onDecrement(id)
+    onDecrement = (id) => {
+        // const dataCopy = [...this.state.data];
+        // const data = dataCopy.map((counter) => {
+        //     if (counter.id === id) {
+        //         counter.value = counter.value - 1;
+        //     }
+        // })
+        // this.setState(data)
     }
 
     render() {
@@ -44,3 +69,14 @@ export default class Counter extends React.Component {
             </div>);
     }
 }
+
+
+const mapDispatchToProps = dispatch => {
+    return {
+        //handleOnIncrement: onIncrement,
+        handleOnIncrement: (id) => dispatch(onIncrement(id)),
+        onDecrement: () => dispatch(onDecrement(1))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Counter);

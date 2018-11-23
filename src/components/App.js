@@ -4,7 +4,7 @@ import './App.css';
 import Total from './Total'
 import uuidv4 from 'uuid/v4';
 import { connect } from 'react-redux';
-import { onIncrement, onDecrement } from '../actions/PageActions';
+
 
 class App extends React.Component {
 
@@ -21,33 +21,13 @@ class App extends React.Component {
         })
     }
 
-    deleteCounter = (id) => {
-        this.setState((prevState) => {
-            return {
-                data: prevState.data.filter(el => el.id !== id)
-            };
-        })
-    }
-
-    onIncrement = (id) => {
-        const dataCopy = [...this.state.data];
-        const data = dataCopy.map((counter) => {
-            if (counter.id === id) {
-                counter.value = counter.value + 1;
-            }
-        })
-        this.setState(data)
-    }
-
-    onDecrement = (id) => {
-        const dataCopy = [...this.state.data];
-        const data = dataCopy.map((counter) => {
-            if (counter.id === id) {
-                counter.value = counter.value - 1;
-            }
-        })
-        this.setState(data)
-    }
+    // deleteCounter = (id) => {
+    //     this.setState((prevState) => {
+    //         return {
+    //             data: prevState.data.filter(el => el.id !== id)
+    //         };
+    //     })
+    // }
 
     render() {
         const {dataCounters} = this.props
@@ -57,9 +37,6 @@ class App extends React.Component {
                     <Counter
                         id={counter.id}
                         value={counter.value}
-                        deleteCounter={this.deleteCounter}
-                        onIncrement={this.onIncrement(counter.id)}
-                        onDecrement={this.onDecrement(counter.id)}
                     />))}
                 <Total
                     addCounter={this.addCounter}
@@ -74,16 +51,7 @@ function mapStateToProps(state) {
     };
 }
 
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onIncrement: () => dispatch(onIncrement(1)),
-        onDecrement: () => dispatch(onDecrement(1))
-    }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, null)(App);
 
 //export default App;
 
