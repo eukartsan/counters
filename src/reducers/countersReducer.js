@@ -21,8 +21,16 @@ export function reducer(state = initialState, action) {
             })
             return {...state, data}
         }
-        case 'DECREMENT':
-            return state - 1
+        case 'DECREMENT': {
+            const dataCopy = [...state.data]
+            const data = dataCopy.map((counter) => {
+                if (counter.id === action.id) {
+                    counter.value = counter.value - 1
+                }
+                return counter
+            })
+            return {...state, data}
+        }
         default:
             return state
     }

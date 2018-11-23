@@ -35,14 +35,9 @@ class Counter extends React.Component {
         // this.setState(data)
     }
 
-    onDecrement = (id) => {
-        // const dataCopy = [...this.state.data];
-        // const data = dataCopy.map((counter) => {
-        //     if (counter.id === id) {
-        //         counter.value = counter.value - 1;
-        //     }
-        // })
-        // this.setState(data)
+    onDecrement = (id) => (event) => {
+        event.preventDefault()
+        this.props.handleOnDecrement(id)
     }
 
     render() {
@@ -75,7 +70,7 @@ const mapDispatchToProps = dispatch => {
     return {
         //handleOnIncrement: onIncrement,
         handleOnIncrement: (id) => dispatch(onIncrement(id)),
-        onDecrement: () => dispatch(onDecrement(1))
+        handleOnDecrement: (id) => dispatch(onDecrement(id)),
     }
 }
 
