@@ -5,6 +5,7 @@ export const initialState = {
         { id: uuidv4(), value: 0 },
         { id: uuidv4(), value: 0 },
         { id: uuidv4(), value: 0 },
+        { id: uuidv4(), value: 0 },
     ]
 };
 
@@ -30,17 +31,40 @@ export function reducer(state = initialState, action) {
             })
             return { ...state, data }
         }
+
+        case 'DELETE': {
+            const data = state.data.filter((counter) => counter.id !== action.id)
+            return { ...state, data }
+        }
+
+        case 'RESET': {
+            const dataCopy = [...state.data]
+            const data = dataCopy.map((counter) => {
+                if (counter.id === action.id) {
+                    counter.value = 0
+                }
+                return counter
+            })
+            return { ...state, data }
+        }
+
+        case 'ALL_RESET': {
+            const dataCopy = [...state.data]
+            const data = dataCopy.map((counter) => {
+                {
+                    counter.value = 0
+                }
+                return counter
+            })
+            return { ...state, data }
+        }
+
         case 'ADD': {
             const newCounter = {
                 id: uuidv4(),
                 value: 0
             }
             const data = [...state.data, newCounter]
-            return { ...state, data }
-        }
-
-        case 'DELETE': {
-            const data = state.data.filter((counter) => counter.id !== action.id)
             return { ...state, data }
         }
 

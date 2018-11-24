@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { onIncrement, onDecrement, onDeleteCounter } from '../actions/PageActions'
+import { onIncrement, onDecrement, onDeleteCounter, onResetCounter } from '../actions/PageActions'
 
 class Counter extends React.Component {
     onDeleteCounter = (id) => () => {
@@ -13,6 +13,10 @@ class Counter extends React.Component {
 
     onDecrement = (id) => () => {
         this.props.handleOnDecrement(id)
+    }
+
+    onResetCounter = (id) => () => {
+        this.props.handleOnResetCounter(id)
     }
 
     render() {
@@ -34,6 +38,9 @@ class Counter extends React.Component {
                         onClick={this.onDeleteCounter(id)}
                         className="button is-warning is-small">Del
                     </button>
+                    <button
+                        onClick={this.onResetCounter(id)}>Reset
+                    </button>
                 </div>
             </div>);
     }
@@ -44,6 +51,7 @@ const mapDispatchToProps = dispatch => {
         handleOnIncrement: (id) => dispatch(onIncrement(id)),
         handleOnDecrement: (id) => dispatch(onDecrement(id)),
         handleOnDelCounter: (id) => dispatch(onDeleteCounter(id)),
+        handleOnResetCounter: (id) => dispatch(onResetCounter(id)),
     }
 }
 

@@ -1,0 +1,6 @@
+export const INCREMENT = 'INCREMENT'
+export const DECREMENT = 'DECREMENT'
+export const ADD = 'ADD'
+export const DELETE = 'DELETE'
+export const RESET = 'RESET'
+export const ALL_RESET = 'ALL_RESET'

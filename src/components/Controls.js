@@ -1,5 +1,5 @@
 import React from 'react'
-import { onAddCounter } from '../actions/PageActions'
+import { onAddCounter, onAllResetCounter } from '../actions/PageActions'
 import { connect } from 'react-redux'
 
 class Controls extends React.Component {
@@ -7,6 +7,10 @@ class Controls extends React.Component {
     onAddCounter = (id) => (event) => {
         event.preventDefault()
         this.props.handleOnAddCounter(id)
+    }
+
+    onAllResetCounter = (id) => () => {
+        this.props.handleOnAllResetCounter(id)
     }
 
     render() {
@@ -19,6 +23,10 @@ class Controls extends React.Component {
                         type="submit"
                         value="Add counter" />
                 </form>
+                <button
+                onClick={this.onAllResetCounter(id)}>
+                    All Reset
+                </button>
             </div>
 
 
@@ -29,6 +37,7 @@ class Controls extends React.Component {
 const mapDispatchToProps = dispatch => {
     return {
         handleOnAddCounter: (id) => dispatch(onAddCounter(id)),
+        handleOnAllResetCounter: (id) => dispatch(onAllResetCounter(id)),
     }
 }
 
