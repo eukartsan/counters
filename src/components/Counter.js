@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { onIncrement, onDecrement, onDeleteCounter, onResetCounter } from '../actions/PageActions'
 
 class Counter extends React.Component {
@@ -53,6 +54,15 @@ const mapDispatchToProps = dispatch => {
         handleOnDelCounter: (id) => dispatch(onDeleteCounter(id)),
         handleOnResetCounter: (id) => dispatch(onResetCounter(id)),
     }
+}
+
+Counter.propTypes = {
+    value: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
+    handleOnIncrement: PropTypes.func.isRequired,
+    handleOnDecrement: PropTypes.func.isRequired,
+    handleOnDelCounter: PropTypes.func.isRequired,
+    handleOnResetCounter: PropTypes.func.isRequired,
 }
 
 export default connect(null, mapDispatchToProps)(Counter)

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { onAddCounter, onAllResetCounter } from '../actions/PageActions'
 import { connect } from 'react-redux'
 
@@ -29,7 +30,6 @@ class Controls extends React.Component {
                 </button>
             </div>
 
-
         );
     }
 }
@@ -39,6 +39,11 @@ const mapDispatchToProps = dispatch => {
         handleOnAddCounter: (id) => dispatch(onAddCounter(id)),
         handleOnAllResetCounter: (id) => dispatch(onAllResetCounter(id)),
     }
+}
+
+Controls.propTypes = {
+    handleOnAddCounter: PropTypes.func.isRequired,
+    handleOnAllResetCounter: PropTypes.func.isRequired,
 }
 
 export default connect(null, mapDispatchToProps)(Controls)

@@ -51,9 +51,7 @@ export function reducer(state = initialState, action) {
         case 'ALL_RESET': {
             const dataCopy = [...state.data]
             const data = dataCopy.map((counter) => {
-                {
-                    counter.value = 0
-                }
+                (counter.value = 0)
                 return counter
             })
             return { ...state, data }
