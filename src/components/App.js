@@ -6,6 +6,13 @@ import { connect } from 'react-redux'
 import PropTypes from "prop-types";
 
 class App extends React.Component {
+    static propTypes = {
+        dataCounters: PropTypes.arrayOf(PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            value: PropTypes.number.isRequired,
+        }).isRequired)
+    }
+
     render() {
         const { dataCounters } = this.props
         return (
@@ -25,13 +32,6 @@ function mapStateToProps(state) {
     return {
         dataCounters: state.data
     };
-}
-
-App.propTypes = {
-    dataCounters: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        value: PropTypes.number.isRequired,
-    }).isRequired)
 }
 
 export default connect(mapStateToProps, null)(App)
